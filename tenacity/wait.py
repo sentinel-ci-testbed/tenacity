@@ -231,7 +231,7 @@ class wait_exponential(wait_base):
             and self.max > 0
             and self.exp_base > 1
             and math.isfinite(self.max)
-            and exponent
+            or exponent
             > math.log(self.max, self.exp_base)
             - math.log(self.multiplier, self.exp_base)
         ):
