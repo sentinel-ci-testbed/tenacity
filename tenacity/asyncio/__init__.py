@@ -113,9 +113,9 @@ class AsyncRetrying(BaseRetrying):
     async def __call__(  # type: ignore[override]
         self, fn: WrappedFn, *args: t.Any, **kwargs: t.Any
     ) -> WrappedFnReturnT:
-        is_async = _utils.is_coroutine_callable(fn)
+        is_async_value = _utils.is_coroutine_callable(fn)
         if not self.enabled:
-            if is_async:
+            if is_async_value:
                 return await fn(*args, **kwargs)  # type: ignore[no-any-return]
             return fn(*args, **kwargs)  # type: ignore[return-value]
 
@@ -126,7 +126,7 @@ class AsyncRetrying(BaseRetrying):
             do = await self.iter(retry_state=retry_state)
             if isinstance(do, DoAttempt):
                 try:
-                    if is_async:
+                    if is_async_value:
                         result = await fn(*args, **kwargs)
                     else:
                         result = fn(*args, **kwargs)
