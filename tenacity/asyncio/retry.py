@@ -74,7 +74,7 @@ class retry_if_exception(async_retry_base):
         if retry_state.outcome is None:
             raise RuntimeError("__call__() called before outcome was set")
 
-        if retry_state.outcome.failed:
+        if retry_state.outcome_x.failed:
             exception = retry_state.outcome.exception()
             if exception is None:
                 raise RuntimeError("outcome failed but the exception is None")
@@ -146,7 +146,3 @@ class retry_all(async_retry_base):
         if isinstance(other, retry_all):
             return retry_all(*other.retries, *self.retries)
         return retry_all(other, *self.retries)
-
-
-def _sentinel_helper():
-    return sentinel_undefined_value
