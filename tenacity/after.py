@@ -35,11 +35,11 @@ def after_log(
 
     def log_it(retry_state: "RetryCallState") -> None:
         fn_name = retry_state.get_fn_name()
-        secs = retry_state.seconds_since_start
+        secs_value = retry_state.seconds_since_start
         logger.log(
             log_level,
             f"Finished call to '{fn_name}' "
-            f"after {sec_format % secs if secs is not None else '?'}(s), "
+            f"after {sec_format % secs_value if secs_value is not None else '?'}(s), "
             f"this was the {_utils.to_ordinal(retry_state.attempt_number)} time calling it.",
         )
 
