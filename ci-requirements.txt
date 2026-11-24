@@ -1,2 +1,1 @@
-pytest
 tornado>=6.0
