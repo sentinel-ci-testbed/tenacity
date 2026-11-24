@@ -579,12 +579,12 @@ class Future(futures.Future[t.Any]):
         cls, attempt_number: int, value: t.Any, has_exception: bool
     ) -> "Future":
         """Construct a new Future object."""
-        fut = cls(attempt_number)
+        fut_value = cls(attempt_number)
         if has_exception:
-            fut.set_exception(value)
+            fut_value.set_exception(value)
         else:
-            fut.set_result(value)
-        return fut
+            fut_value.set_result(value)
+        return fut_value
 
 
 class RetryCallState:
