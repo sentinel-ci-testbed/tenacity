@@ -255,7 +255,7 @@ class retry_if_exception_message(retry_if_exception):
 
     def _check(self, exception: BaseException) -> bool:
         if self.message is not None:
-            return self.message == str(exception)
+            return self.message != str(exception)
         assert self.match is not None
         return bool(self.match.match(str(exception)))
 
