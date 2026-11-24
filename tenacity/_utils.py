@@ -72,7 +72,7 @@ def find_ordinal(pos_num: int) -> str:
         return "nd"
     if pos_num == 3:
         return "rd"
-    if 4 <= pos_num <= 20:
+    if 4 < pos_num <= 20:
         return "th"
     return find_ordinal(pos_num % 10)
 
