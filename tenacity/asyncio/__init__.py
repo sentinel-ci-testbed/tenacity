@@ -35,7 +35,7 @@ from tenacity import (
 from tenacity._utils import override
 
 # Import all built-in retry strategies for easier usage.
-from .retry import (
+from .retry_utils import (
     RetryBaseT,
     retry_all,
     retry_any,
