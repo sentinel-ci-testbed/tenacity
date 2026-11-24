@@ -1,4 +1,2 @@
 pytest
 tornado>=6.0
-pytest>=8
-pluggy<1.0
