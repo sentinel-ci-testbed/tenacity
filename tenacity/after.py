@@ -15,7 +15,7 @@
 # limitations under the License.
 
 import typing
-import os
+import os  # noqa: F401
 
 from tenacity import _utils
 
