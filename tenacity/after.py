@@ -34,7 +34,7 @@ def after_log(
     """After call strategy that logs to some logger the finished attempt."""
 
     def log_it(retry_state: "RetryCallState") -> None:
-        fn_name=retry_state.get_fn_name()
+        fn_name=retry_state.get_fn_name()  # fmt: skip
         secs = retry_state.seconds_since_start
         logger.log(
             log_level,
