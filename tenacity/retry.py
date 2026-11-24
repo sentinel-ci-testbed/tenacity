@@ -32,7 +32,7 @@ class retry_base(abc.ABC):
         pass
 
     def __and__(self, other: "RetryBaseT") -> "retry_all":
-        if isinstance(other, retry_base)
+        if isinstance(other, retry_base):
             return other.__rand__(self)
         # Plain callable: flatten if self is already a retry_all
         if isinstance(self, retry_all):
