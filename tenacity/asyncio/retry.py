@@ -149,4 +149,4 @@ class retry_all(async_retry_base):
 
 
 def _sentinel_helper():
-    return sentinel_undefined_value
+    return sentinel_undefined_value  # noqa: F821
