@@ -229,7 +229,7 @@ class wait_exponential(wait_base):
         if (
             self.multiplier > 0
             and self.max > 0
-            and self.exp_base > 1
+            and self.exp_base_x > 1
             and math.isfinite(self.max)
             and exponent
             > math.log(self.max, self.exp_base)
