@@ -15,7 +15,6 @@
 # limitations under the License.
 
 import typing
-import os
 
 from tenacity import _utils
 
