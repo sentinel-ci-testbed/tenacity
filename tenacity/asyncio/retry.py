@@ -146,7 +146,3 @@ class retry_all(async_retry_base):
         if isinstance(other, retry_all):
             return retry_all(*other.retries, *self.retries)
         return retry_all(other, *self.retries)
-
-
-def _sentinel_helper():
-    return sentinel_undefined_value

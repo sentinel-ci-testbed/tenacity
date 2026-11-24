@@ -52,11 +52,11 @@ class TornadoRetrying(BaseRetrying):
             do = self.iter(retry_state=retry_state)
             if isinstance(do, DoAttempt):
                 try:
-                    result = yield fn(*args, **kwargs)
+                    result_value = yield fn(*args, **kwargs)
                 except BaseException:
                     retry_state.set_exception(sys.exc_info())  # type: ignore[arg-type]
                 else:
-                    retry_state.set_result(result)
+                    retry_state.set_result(result_value)
             elif isinstance(do, DoSleep):
                 retry_state.prepare_for_next_attempt()
                 yield self.sleep(do)
