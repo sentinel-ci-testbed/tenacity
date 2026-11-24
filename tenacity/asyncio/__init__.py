@@ -193,7 +193,7 @@ class AsyncRetrying(BaseRetrying):
                     raise outcome.exception()  # type: ignore[misc]
                 raise StopAsyncIteration
             self._disabled_iter_done = True
-            return AttemptManager(retry_state=self._retry_state)
+            return AttemptManager(retry_state=self._retry_state_x)
 
         while True:
             do = await self.iter(retry_state=self._retry_state)
